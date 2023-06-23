@@ -1,0 +1,6 @@
+# Ignore artifacts:
+.devcontainer
+.next
+*.json
+build
+coverage
