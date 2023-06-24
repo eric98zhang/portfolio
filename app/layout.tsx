@@ -2,7 +2,7 @@ import "./globals.css";
 import { inter } from "./fonts";
 
 export const metadata = {
-  title: "ERK",
+  title: "ERICZHANG",
   description: "ERICZHANG SANDBOX",
 };
 
