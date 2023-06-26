@@ -13,5 +13,13 @@ function GridFormat({ children }: { children: string }) {
 }
 
 export default function GridScramble({ children }: { children: string }) {
-  return <LetterScrambleBase LayoutComponent={GridFormat} scrambleTime={2000}>{children}</LetterScrambleBase>;
+  return (
+    <LetterScrambleBase
+      LayoutComponent={GridFormat}
+      scrambleTime={2000}
+      scrambleOnLoad={true}
+    >
+      {children}
+    </LetterScrambleBase>
+  );
 }

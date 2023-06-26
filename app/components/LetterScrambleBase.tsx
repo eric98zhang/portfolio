@@ -1,7 +1,6 @@
 "use client";
 
 import React, { FC, useState, useEffect } from "react";
-import internal from "stream";
 
 function scramble(word: string) {
   return word
@@ -14,14 +13,21 @@ export default function LetterScrambleBase({
   children,
   LayoutComponent,
   scrambleTime = 500,
+  scrambleOnLoad = false,
 }: {
   children: string;
-  LayoutComponent: FC<{children: string}>;
+  LayoutComponent: FC<{ children: string }>;
   scrambleTime?: number;
+  scrambleOnLoad?: boolean;
 }) {
   const [letters, setLetters] = useState(children);
+  const [isScrambling, setIsScrambling] = useState(false);
 
   function handleMouseEnter() {
+    if (isScrambling) {
+      return () => {};
+    }
+    setIsScrambling(true);
     const scrambleInterval = setInterval(() => {
       setLetters(scramble(children));
     }, 25);
@@ -30,6 +36,7 @@ export default function LetterScrambleBase({
     const resetTimeout = setTimeout(() => {
       clearInterval(scrambleInterval);
       setLetters(children);
+      setIsScrambling(false);
     }, scrambleTime);
 
     // Clear interval and timeout if they are still running when component is unmounted
@@ -39,11 +46,13 @@ export default function LetterScrambleBase({
     };
   }
 
+  if (scrambleOnLoad) {
+    useEffect(handleMouseEnter, []);
+  }
+
   return (
     <div onMouseEnter={handleMouseEnter} onTouchStart={handleMouseEnter}>
-      <LayoutComponent>
-        {letters}
-      </LayoutComponent>
+      <LayoutComponent>{letters}</LayoutComponent>
     </div>
   );
 }
