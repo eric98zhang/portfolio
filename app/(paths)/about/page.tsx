@@ -3,24 +3,23 @@ import { useState } from "react";
 import { roboto_mono } from "../../fonts";
 import { TypeAnimation } from "react-type-animation";
 
-const PARAGRAPHS = [
-  `i'm a machine learning engineer at meta platforms and graduate from the university of waterloo.\n`,
-  1000,
-  `i'm a machine learning engineer at meta platforms and graduate from the university of waterloo.\n
-  at meta, i think about how to use machine learning to solve ad market dynamics problems.\n`,
-  1000,
-  `i'm a machine learning engineer at meta platforms and graduate from the university of waterloo.\n
-  at meta, i think about how to use machine learning to solve ad market dynamics problems.\n
-  i majored in computer science and statistics.\n`,
-  1000,
-  `i'm a machine learning engineer at meta platforms and graduate from the university of waterloo.\n
-  at meta, i think about how to use machine learning to solve ad market dynamics problems.\n
-  i majored in computer science and statistics.\n
-  i like to focus on first principles, foundations, cleanliness, and details, roughly in that order.`,
+const SENTENCES = [
+  "i'm a machine learning engineer at meta platforms from the university of waterloo.",
+  "at meta, i think about how to use machine learning to solve ad market dynamics problems.",
+  "i majored in computer science and statistics.",
+  "i like to focus on first principles, foundations, cleanliness, and details, roughly in that order.",
 ];
+
+let TYPING_ANIMATION_SETNENCES = [SENTENCES[0], 1000];
+for (let i = 1; i < SENTENCES.length; ++i) {
+  TYPING_ANIMATION_SETNENCES[2 * i] =
+    TYPING_ANIMATION_SETNENCES[2 * (i - 1)] + "\n\n" + SENTENCES[i];
+  TYPING_ANIMATION_SETNENCES[2 * i + 1] = 1000;
+}
 
 export default function Home() {
   const [isSkipped, setIsSkipped] = useState(false);
+
   return (
     <>
       <div
@@ -29,23 +28,17 @@ export default function Home() {
       >
         {isSkipped ? (
           <>
-            <p>
-              i'm a machine learning engineer at meta platforms and graduate
-              from the university of waterloo.
-            </p>
-            <p>
-              at meta, i think about how to use machine learning to solve ad
-              market dynamics problems.
-            </p>
-            <p>i majored in computer science and statistics.</p>
-            <p>
-              i like to focus on first principles, foundations, cleanliness, and
-              details, roughly in that order.
+            <p style={{ whiteSpace: "pre-line" }}>
+              {
+                TYPING_ANIMATION_SETNENCES[
+                  TYPING_ANIMATION_SETNENCES.length - 2
+                ]
+              }
             </p>
           </>
         ) : (
           <TypeAnimation
-            sequence={PARAGRAPHS}
+            sequence={TYPING_ANIMATION_SETNENCES}
             wrapper="span"
             cursor={false}
             speed={70}
