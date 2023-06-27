@@ -17,6 +17,8 @@ for (let i = 1; i < SENTENCES.length; ++i) {
   TYPING_ANIMATION_SETNENCES[2 * i + 1] = 1000;
 }
 
+TYPING_ANIMATION_SETNENCES = [".", 250, "..", 250, "...", 500].concat(TYPING_ANIMATION_SETNENCES)
+
 export default function Home() {
   const [isSkipped, setIsSkipped] = useState(false);
 
@@ -42,6 +44,7 @@ export default function Home() {
             wrapper="span"
             cursor={false}
             speed={70}
+            deletionSpeed={99}
             style={{ whiteSpace: "pre-line" }}
           />
         )}
