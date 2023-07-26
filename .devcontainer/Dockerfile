@@ -9,9 +9,9 @@ RUN apt-get update \
     && n lts
 
 # ---- npm installs ----
-W# ORKDIR /tmp
-C# OPY package.json ./
-R# UN npm install
+WORKDIR /tmp
+COPY package.json ./
+RUN npm install
 
 # ---- clean up ----
 USER vscode

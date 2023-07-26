@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { NAVBAR_ENTRIES } from "@/app/config/consts";
 
 const DRAWER_TRANSITION_TIME: number = 250;
+const colors = require('tailwindcss/colors')
 
 export default function RootLayout({
   children,
@@ -30,7 +31,7 @@ export default function RootLayout({
     <div className="flex flex-col min-h-screen">
       <div className="flex-grow">
         <header>
-          <div className="box-border flex flex-row items-center justify-between border-b border-black text-xs">
+          <div className="box-border flex flex-row items-center justify-between border-b border-on_background text-xs">
             <Link href="/">
               <div className="p-4">ERICZHANG</div>
             </Link>
@@ -54,13 +55,13 @@ export default function RootLayout({
               <div
                 className={`
               ${isOpen ? "opacity-100" : "opacity-0"}
-                fixed bottom-0 left-0 top-12 w-72 border-r border-t border-black
-                bg-white text-xs transition-all duration-[${DRAWER_TRANSITION_TIME}ms]
+                fixed bottom-0 left-0 top-12 w-72 border-r border-t border-on_background
+                bg-background text-xs transition-all duration-[${DRAWER_TRANSITION_TIME}ms]
               `}
               >
                 {NAVBAR_ENTRIES.map(([name, url], index) => (
                   <Link href={url} key={index}>
-                    <div className="border-b border-black p-4">{name}</div>
+                    <div className="border-b border-on_background p-4">{name}</div>
                   </Link>
                 ))}
               </div>
@@ -69,7 +70,7 @@ export default function RootLayout({
         </header>
         <main className="mx-3">{children}</main>
       </div>
-      <footer className="box-border border-t border-black p-4 text-xs">
+      <footer className="box-border border-t border-on_background p-4 text-xs">
         END
       </footer>
     </div>
