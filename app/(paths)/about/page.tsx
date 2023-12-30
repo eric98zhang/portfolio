@@ -4,10 +4,11 @@ import { roboto_mono } from "../../fonts";
 import { TypeAnimation } from "react-type-animation";
 
 const SENTENCES = [
-  "i'm a machine learning engineer at meta platforms from the university of waterloo.",
-  "at meta, i think about how to use machine learning to solve ad market dynamics problems.",
-  "i majored in computer science and statistics.",
-  "i like to focus on first principles, foundations, cleanliness, and details, roughly in that order.",
+  "Hi, I'm Eric!",
+  "I'm a machine learning engineer at Meta.",
+  "I majored in computer science and statistics at the University of Waterloo.",
+  "...",
+  "I like to work from first principles!",
 ];
 
 let TYPING_ANIMATION_SETNENCES = [SENTENCES[0], 1000];
