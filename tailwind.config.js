@@ -19,6 +19,7 @@ module.exports = {
         // brand: "#000000",
         background: "#FFFFFF",
         on_background: "#000000",
+        text: "#000000",
       },
       dark: {
         // primary: "#000000",
@@ -26,6 +27,7 @@ module.exports = {
         // brand: "#000000",
         background: "#000000",
         on_background: "#FFFFFF",
+        text: "#FFFFFF",
       },
     }),
   ],
