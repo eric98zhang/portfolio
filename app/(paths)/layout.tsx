@@ -6,7 +6,6 @@ import React, { useState } from "react";
 import { NAVBAR_ENTRIES } from "@/app/config/consts";
 
 const DRAWER_TRANSITION_TIME: number = 250;
-const colors = require('tailwindcss/colors')
 
 export default function RootLayout({
   children,
@@ -28,8 +27,8 @@ export default function RootLayout({
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex-grow">
+    <div className="flex min-h-screen flex-col">
+      <div className="flex flex-grow flex-col">
         <header>
           <div className="box-border flex flex-row items-center justify-between border-b border-on_background text-xs">
             <Link href="/">
@@ -61,14 +60,16 @@ export default function RootLayout({
               >
                 {NAVBAR_ENTRIES.map(([name, url], index) => (
                   <Link href={url} key={index}>
-                    <div className="border-b border-on_background p-4">{name}</div>
+                    <div className="border-b border-on_background p-4">
+                      {name}
+                    </div>
                   </Link>
                 ))}
               </div>
             </>
           )}
         </header>
-        <main className="mx-3">{children}</main>
+        {children}
       </div>
       <footer className="box-border border-t border-on_background p-4 text-xs">
         END

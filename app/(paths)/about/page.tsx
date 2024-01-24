@@ -24,9 +24,9 @@ export default function Home() {
   const [isSkipped, setIsSkipped] = useState(false);
 
   return (
-    <>
+    <main className="mx-3">
       <div
-        className={`${roboto_mono.className} mx-auto my-4 max-w-2xl space-y-4`}
+        className={`${roboto_mono.className} mx-auto my-4 max-w-2xl space-y-4 flex-grow`}
         onClick={() => setIsSkipped(true)}
       >
         {isSkipped ? (
@@ -50,6 +50,6 @@ export default function Home() {
           />
         )}
       </div>
-    </>
+    </main>
   );
 }
