@@ -20,11 +20,11 @@ const useAutosizeTextArea = (
   }, [textAreaRef, value]);
 };
 
-
 export default function Page() {
-  const { messages, input, setInput, handleInputChange, handleSubmit } = useChat({
-    api: "/locked/llm/api",
-  });
+  const { messages, input, setInput, handleInputChange, handleSubmit } =
+    useChat({
+      api: "/locked/llm/api",
+    });
 
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   useAutosizeTextArea(textAreaRef.current, input);
@@ -36,12 +36,11 @@ export default function Page() {
   };
   const formRef = useRef<HTMLFormElement>(null);
   const onEnterPress = (e: React.KeyboardEvent) => {
-    if(e.keyCode == 13 && e.shiftKey == false) {
+    if (e.keyCode == 13 && e.shiftKey == false) {
       e.preventDefault();
       formRef.current?.requestSubmit();
     }
-  }
-
+  };
 
   return (
     <main className="mx-3 flex flex-grow flex-col">
@@ -61,7 +60,7 @@ export default function Page() {
 
         <form className="max-w-2xl" onSubmit={handleSubmit} ref={formRef}>
           <textarea
-            className="w-full rounded border border-gray-300 p-2 text-sm"
+            className="w-full resize-none rounded border border-gray-300 bg-background p-2 text-sm focus:outline-none"
             value={input}
             placeholder="Say something..."
             onChange={handleChange}
