@@ -2,6 +2,9 @@
 
 import { useChat } from "ai/react";
 import React, { useEffect, useRef, useState } from "react";
+import Markdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
+import "./atom-one-dark.css";
 
 const useAutosizeTextArea = (
   textAreaRef: HTMLTextAreaElement | null,
@@ -50,9 +53,11 @@ export default function Page() {
             {messages.map((m) => (
               <div key={m.id} className="my-2 whitespace-pre-wrap">
                 <div className="font-bold">
-                  {m.role === "user" ? "User" : "LLM"}
+                  {m.role === "user" ? "USER" : "LLM"}
                 </div>
-                {m.content}
+                <Markdown rehypePlugins={[rehypeHighlight]} className="markdown">
+                  {m.content}
+                </Markdown>
               </div>
             ))}
           </div>
