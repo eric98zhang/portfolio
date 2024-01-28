@@ -12,18 +12,18 @@ export async function middleware(req: NextRequest) {
   } = await supabase.auth.getUser();
 
   // if user is signed in, redirect them away from the login page
-  if (user && req.nextUrl.pathname === "/secret/login") {
-    return NextResponse.redirect(new URL("/secret", req.url));
+  if (user && req.nextUrl.pathname === "/locked/login") {
+    return NextResponse.redirect(new URL("/locked", req.url));
   }
 
   // if user is not signed in, redirect them to the login page
-  if (!user && req.nextUrl.pathname !== "/secret/login") {
-    return NextResponse.redirect(new URL("/secret/login", req.url));
+  if (!user && req.nextUrl.pathname !== "/locked/login") {
+    return NextResponse.redirect(new URL("/locked/login", req.url));
   }
 
   return res;
 }
 
 export const config = {
-  matcher: ["/secret", "/secret/:path*"],
+  matcher: ["/locked", "/locked/:path*"],
 };

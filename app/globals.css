@@ -3,7 +3,14 @@
 @tailwind utilities;
 
 body {
-  color: theme("colors.on_background");
+  color: theme("colors.foreground");
   background: theme("colors.background");
   -webkit-tap-highlight-color: transparent;
+}
+
+/* .fullscreen-with-bars {
+  max-height: 100vh - 96px;
+} */
+.fullscreen-with-bars {
+  max-height: calc(100vh - 152px);
 }

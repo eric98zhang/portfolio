@@ -30,7 +30,7 @@ export default function RootLayout({
     <div className="flex min-h-screen flex-col">
       <div className="flex flex-grow flex-col">
         <header>
-          <div className="box-border flex flex-row items-center justify-between border-b border-on_background text-xs">
+          <div className="box-border flex flex-row items-center justify-between border-b border-foreground text-xs">
             <Link href="/">
               <div className="p-4">ERICZHANG</div>
             </Link>
@@ -54,13 +54,13 @@ export default function RootLayout({
               <div
                 className={`
               ${isOpen ? "opacity-100" : "opacity-0"}
-                fixed bottom-0 left-0 top-12 w-72 border-r border-t border-on_background
+                fixed bottom-0 left-0 top-12 w-72 border-r border-t border-foreground
                 bg-background text-xs transition-all duration-[${DRAWER_TRANSITION_TIME}ms]
               `}
               >
                 {NAVBAR_ENTRIES.map(([name, url], index) => (
                   <Link href={url} key={index}>
-                    <div className="border-b border-on_background p-4">
+                    <div className="border-b border-foreground p-4">
                       {name}
                     </div>
                   </Link>
@@ -71,7 +71,7 @@ export default function RootLayout({
         </header>
         {children}
       </div>
-      <footer className="box-border border-t border-on_background p-4 text-xs">
+      <footer className="box-border border-t border-foreground p-4 text-xs">
         END
       </footer>
     </div>

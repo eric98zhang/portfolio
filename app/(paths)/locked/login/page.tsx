@@ -6,8 +6,8 @@ import { Database } from "@/supabase/database.types";
 export default async function Page() {
   return (
     <main className="mx-3 my-4 flex flex-grow flex-col">
-      <div className="flex max-w-2xl flex-grow flex-col">
-        <div>
+      <div className="mx-auto flex max-w-2xl flex-grow flex-col">
+        <div className="text-sm">
           Sign in using a link sent to your email address. Sign-ups are closed
           (contact me).
         </div>

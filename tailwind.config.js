@@ -14,19 +14,13 @@ module.exports = {
   plugins: [
     createThemes({
       light: {
-        // primary: "#000000",
-        // secondary: "#000000",
-        // brand: "#000000",
         background: "#FFFFFF",
-        on_background: "#000000",
+        foreground: "#000000",
         text: "#000000",
       },
       dark: {
-        // primary: "#000000",
-        // secondary: "#000000",
-        // brand: "#000000",
         background: "#000000",
-        on_background: "#FFFFFF",
+        foreground: "#FFFFFF",
         text: "#FFFFFF",
       },
     }),

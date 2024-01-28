@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <main className="mx-3">
       <div
-        className={`${roboto_mono.className} mx-auto my-4 max-w-2xl space-y-4 flex-grow`}
+        className={`${roboto_mono.className} mx-auto my-4 max-w-2xl space-y-4 text-sm`}
         onClick={() => setIsSkipped(true)}
       >
         {isSkipped ? (
